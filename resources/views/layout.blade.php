@@ -54,7 +54,7 @@
                                 <a href="{{URL::route('section.index')}}">Data Bagian</a>
                             </li>
 							<li>
-                                <a href="#">Data Pegawai</a>
+                                <a href="{{URL::route('employee.index')}}">Data Pegawai</a>
                             </li>
                         </ul>
                       </li>

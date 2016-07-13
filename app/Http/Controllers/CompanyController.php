@@ -7,6 +7,7 @@ use Validator;
 
 use App\Http\Requests;
 use App\Entities\Company;
+
 class CompanyController extends Controller
 {
     /**

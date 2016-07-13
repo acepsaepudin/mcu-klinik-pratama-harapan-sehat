@@ -89,3 +89,40 @@ Route::group(['prefix' => 'jabatan'], function(){
 	]);
 });
 
+Route::group(['prefix' => 'peserta'], function(){
+	/**
+	 * Get list Employee
+	 */
+	Route::get('/',[
+	    'as' => 'employee.index',
+	    'uses' => 'EmployeeController@index'
+	]);
+	/**
+	 * Add New Employee
+	 */
+	Route::get('tambah', [
+		'as' => 'employee.add',
+		'uses' => 'EmployeeController@create'
+	]);
+	/**
+	 * Store New Employee
+	 */
+	Route::post('tambah', [
+		'as' => 'employee.store',
+		'uses' => 'EmployeeController@store'
+	]);
+	/**
+	 * Edit New Employee
+	 */
+	Route::get('{id}/edit', [
+		'as' => 'employee.edit',
+		'uses' => 'EmployeeController@edit'
+	]);
+	/**
+	 * Update data Employee
+	 */
+	Route::post('{id}/update', [
+		'as' => 'employee.update',
+		'uses' => 'EmployeeController@update'
+	]);
+});
