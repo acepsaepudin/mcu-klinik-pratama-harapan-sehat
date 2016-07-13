@@ -51,3 +51,41 @@ Route::group(['prefix' => 'perusahaan'], function(){
 	]);
 });
 
+Route::group(['prefix' => 'jabatan'], function(){
+	/**
+	 * Get list Employee Section
+	 */
+	Route::get('/',[
+	    'as' => 'section.index',
+	    'uses' => 'EmployeeSectionController@index'
+	]);
+	/**
+	 * Add New Employee Section
+	 */
+	Route::get('tambah', [
+		'as' => 'section.add',
+		'uses' => 'EmployeeSectionController@create'
+	]);
+	/**
+	 * Store New Employee Section
+	 */
+	Route::post('tambah', [
+		'as' => 'section.store',
+		'uses' => 'EmployeeSectionController@store'
+	]);
+	/**
+	 * Edit New Employee Section
+	 */
+	Route::get('{id}/edit', [
+		'as' => 'section.edit',
+		'uses' => 'EmployeeSectionController@edit'
+	]);
+	/**
+	 * Update data Employee Section
+	 */
+	Route::post('{id}/update', [
+		'as' => 'section.update',
+		'uses' => 'EmployeeSectionController@update'
+	]);
+});
+

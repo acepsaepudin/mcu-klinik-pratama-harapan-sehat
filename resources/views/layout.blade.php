@@ -26,11 +26,11 @@
                 </button>
                 <a class="navbar-brand" href="{{URL::to('/')}}">Klinik PHS</a> 
             </div>
-            <div style="color: white;
+            <!--<div style="color: white;
                 padding: 15px 50px 5px 50px;
                 float: right;
-                font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
-            </div>
+                font-size: 16px;"> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
+            </div>-->
         </nav>   
            <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -51,7 +51,7 @@
                                 <a href="{{URL::route('company.index')}}">Data Perusahaan</a>
                             </li>
                             <li>
-                                <a href="#">Data Bagian</a>
+                                <a href="{{URL::route('section.index')}}">Data Bagian</a>
                             </li>
 							<li>
                                 <a href="#">Data Pegawai</a>
