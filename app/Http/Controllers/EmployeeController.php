@@ -139,4 +139,17 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    /**
+     * Get Employees by Company
+     *
+     * @return json
+     * @author Acep Saepudin
+     **/
+    public function EmployeesByCompany(Request $request)
+    {
+        $cmp = $request->input('company_id');
+        $employees = Employee::where('company',$cmp)->get(['id', 'nik','name']);
+        return response()->json($employees);
+    }
 }

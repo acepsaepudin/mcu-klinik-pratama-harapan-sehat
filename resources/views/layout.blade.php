@@ -59,7 +59,7 @@
                         </ul>
                       </li>
                      <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
+                        <a  href="{{URL::route('mcu.index')}}"><i class="fa fa-desktop fa-3x"></i>Medical Check Up</a>
                     </li>
                     <li>
                         <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>

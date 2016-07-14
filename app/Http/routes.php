@@ -87,6 +87,7 @@ Route::group(['prefix' => 'jabatan'], function(){
 		'as' => 'section.update',
 		'uses' => 'EmployeeSectionController@update'
 	]);
+	
 });
 
 Route::group(['prefix' => 'peserta'], function(){
@@ -124,5 +125,50 @@ Route::group(['prefix' => 'peserta'], function(){
 	Route::post('{id}/update', [
 		'as' => 'employee.update',
 		'uses' => 'EmployeeController@update'
+	]);
+	/**
+	 * Get Employees by Company
+	 */
+	Route::post('/employees_by_company', [
+		'as' => 'employee.getAllByCompany',
+		'uses' => 'EmployeeController@EmployeesByCompany'
+	]);
+});
+
+Route::group(['prefix' => 'mcu'], function(){
+	/**
+	 * Get list mcu
+	 */
+	Route::get('/',[
+	    'as' => 'mcu.index',
+	    'uses' => 'McuController@index'
+	]);
+	/**
+	 * Add New mcu
+	 */
+	Route::get('tambah', [
+		'as' => 'mcu.add',
+		'uses' => 'McuController@create'
+	]);
+	/**
+	 * Store New mcu
+	 */
+	Route::post('tambah', [
+		'as' => 'mcu.store',
+		'uses' => 'McuController@store'
+	]);
+	/**
+	 * Edit New mcu
+	 */
+	Route::get('{id}/edit', [
+		'as' => 'mcu.edit',
+		'uses' => 'McuController@edit'
+	]);
+	/**
+	 * Update data mcu
+	 */
+	Route::post('{id}/update', [
+		'as' => 'mcu.update',
+		'uses' => 'McuController@update'
 	]);
 });
