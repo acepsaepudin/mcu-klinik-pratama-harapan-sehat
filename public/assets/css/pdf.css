@@ -1,0 +1,17 @@
+.page-one, .page-two, .page-three {
+    page-break-after: always;
+    page-break-inside: avoid;
+}
+.logo-bs {
+    width: 678px;
+    /*height: 147px;*/
+    margin: 0 auto 30px auto;
+}
+hr {
+    border-bottom: 2px double;
+    /*padding-bottom: 20px;*/
+}
+.title-row h3 {
+	text-decoration: underline;
+	text-align: center;
+}

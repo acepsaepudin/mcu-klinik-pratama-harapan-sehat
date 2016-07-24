@@ -7,6 +7,7 @@ use App\Entities\MedicalCheckUp;
 use App\Entities\Company;
 use App\Http\Requests;
 use Validator;
+use PDF;
 
 class McuController extends Controller
 {
@@ -145,5 +146,19 @@ class McuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * undocumented function
+     *
+     * @return void
+     * @author 
+     **/
+    public function printPersonal($id)
+    {
+        // return View('mcu.index', compact('lists'));
+        $data['mcu'] = MedicalCheckUp::find($id);
+        $pdf = PDF::loadView('mcu.personalprint', $data);
+        return $pdf->setPaper('a4')->inline();
     }
 }

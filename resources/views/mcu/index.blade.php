@@ -34,7 +34,10 @@
                                     <td> {{$mcu->alkohol}}</td>
                                     <td> {{$mcu->olahraga}}</td>
                                     
-                                    <td><a href="{{URL::route('mcu.edit', ['id' => $mcu->id])}}" class="btn btn-primary">Edit</a></td>
+                                    <td>
+                                        <a href="{{URL::route('mcu.edit', ['id' => $mcu->id])}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{URL::route('mcu.print', ['id' => $mcu->id])}}" class="btn btn-success">Print</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

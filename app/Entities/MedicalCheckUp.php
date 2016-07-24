@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Entities\Employee;
 
 class MedicalCheckUp extends Model
 {
@@ -16,5 +17,10 @@ class MedicalCheckUp extends Model
     ];
 
     protected $table = 'medicalcheckup';
+
+    public function employee()
+    {
+    	return $this->hasOne('App\Entities\Employee','id','employee_id');
+    }
 
 }

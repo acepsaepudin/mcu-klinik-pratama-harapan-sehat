@@ -171,4 +171,15 @@ Route::group(['prefix' => 'mcu'], function(){
 		'as' => 'mcu.update',
 		'uses' => 'McuController@update'
 	]);
+	/**
+	 * Print data MCU
+	 */
+	Route::get('{id}/print', [
+		'as' => 'mcu.print',
+		'uses' => 'McuController@printPersonal'
+	]);
+});
+
+Route::get('/test', function(){
+	return PDF::loadFile('https://www.google.com')->inline('github.pdf');	
 });
