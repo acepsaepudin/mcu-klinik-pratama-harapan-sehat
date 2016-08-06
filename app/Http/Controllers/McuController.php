@@ -97,6 +97,7 @@ class McuController extends Controller
         $mcu->leukosit_b = $request->input('leukosit_b');
         $mcu->eritrosit = $request->input('eritrosit');
         $mcu->bakteri = $request->input('bakteri');
+        $mcu->keluhan = $request->input('keluhan');
         $mcu->keterangan = $request->input('keterangan');
         $mcu->save();
 
@@ -122,7 +123,8 @@ class McuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mcu = MedicalCheckUp::find($id);
+        return View('mcu.edit',compact('mcu'));
     }
 
     /**

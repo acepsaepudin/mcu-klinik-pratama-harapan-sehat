@@ -73,20 +73,20 @@
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Tekanan Darah</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Tekanan Darah" name="tekanandarah">
+                      <input type="text" class="form-control" placeholder="Tekanan Darah" name="tekanandarah" id="tekanandarah">
                     </div>
                   </div>
                   <hr>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Hemoglobin</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Hemoglobin" name="hemoglobin">
+                      <input type="text" class="form-control" id="hemoglobin" placeholder="Hemoglobin" name="hemoglobin">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Leukosit</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Leukosit" name="leukosit_a">
+                      <input type="text" class="form-control" id="leukosit_a" placeholder="Leukosit" name="leukosit_a">
                     </div>
                   </div>
                   <div class="form-group">
@@ -98,7 +98,7 @@
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Trombosit</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Trombosit" name="trombosit">
+                      <input type="text" class="form-control" id="trombosit" placeholder="Trombosit" name="trombosit">
                     </div>
                   </div>
                   <div class="form-group">
@@ -131,13 +131,13 @@
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">pH</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="pH" name="ph">
+                      <input type="text" class="form-control" id="ph" placeholder="pH" name="ph">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Berat Jenis</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Berat Jenis" name="beratjenis">
+                      <input type="text" class="form-control" id="beratjenis" placeholder="Berat Jenis" name="beratjenis">
                     </div>
                   </div>
                   <div class="form-group">
@@ -177,6 +177,15 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Keluhan</label>
+                    <div class="col-sm-10">
+                      <select class="form-control" name="keluhan">
+                          <option value="Negatif">Tidak ada</option>
+                          <option value="Haid">Haid</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Keterangan</label>
                     <div class="col-sm-10">
                       <select class="form-control" name="keterangan">
@@ -202,8 +211,16 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('assets/js/jquery.mask.min.js')}}"></script>
 <script type="text/javascript">
   $(function(){
+    //masking
+    $('#tekanandarah').mask('000/00');
+    $('#hemoglobin').mask('00,0');
+    $('#leukosit_a').mask('00.0000');
+    $('#trombosit').mask('000.000');
+    $('#ph').mask('0,0');
+    $('#beratjenis').mask('0,000');
     //trigger when page opened
     var cmpid = $('#company_name').val();
     getEmployees(cmpid);

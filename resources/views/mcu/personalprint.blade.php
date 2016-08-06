@@ -23,7 +23,7 @@
 		    	<table>
 			    	<tr>
 			    		<td><strong>No/Kode MCU</strong></td>
-			    		<td><strong>: NBT-RCK/CLK031</strong></td>
+			    		<td><strong>: NBT-RCK/CLK {{$mcu->employee_id}}</strong></td>
 			    	</tr>
 			    	<tr>
 			    		<td><strong>Tanggal</strong></td>
@@ -39,7 +39,7 @@
 			    	</tr>
 			    	<tr>
 			    		<td><strong>Nama</strong></td>
-			    		<td><strong>: {{$mcu->employee->nik}}</strong></td>
+			    		<td><strong>: {{$mcu->employee->name}}</strong></td>
 			    	</tr>
 			    	<tr>
 			    		<td><strong>Umur/Jenis Kelamin</strong></td>
@@ -303,7 +303,7 @@
 		    		<table style="width: 60%;">
 		    			<tr>
 		    				<td><strong>Keluhan Saat Ini</strong></td>
-		    				<td><strong>: Tidak Ada</strong></td>
+		    				<td><strong>: {{($mcu->keluhan == 'Haid' ? 'Haid' : 'Tidak Ada')}}</strong></td>
 		    			</tr>
 		    			<tr>
 		    				<td>&nbsp;</td>
@@ -507,10 +507,10 @@
 		    	<div class="head-content">
 		    		<div class="head-side-left">
 		    			
-		    			<table width="70%">
+		    			<table width="80%">
 		    				<tr>
 		    					<td><strong>A. Pemeriksaan Fisik</strong></td>
-		    					<td><strong>: {{$mcu->keterangan}}</strong></td>
+		    					<td><strong>: Normal</strong></td>
 		    				</tr>
 		    				<tr>
 		    					<td><strong>B. Pemeriksaan Laboratorium</strong></td>
@@ -518,11 +518,41 @@
 		    				</tr>
 		    				<tr>
 		    					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hematologi Rutin</td>
-		    					<td>: Dalam Batas Normal</td>
+		    					<td>: 
+		    					<?php 
+		    						if($mcu->keterangan == 'Normal'){
+		    							echo 'Dalam Batas Normal (Hasil Terlampir)';
+		    						}
+		    						if($mcu->keterangan == 'Hbs Positif'){
+		    							echo 'Dalam Batas Normal (Hasil Terlampir)';
+		    						}
+		    						if($mcu->keterangan == 'Banyak Minum'){
+		    							echo 'Dalam Batas Normal (Hasil Terlampir)';
+		    						}
+		    						if($mcu->keterangan == 'Haid'){
+		    							echo 'Dalam Batas Normal (Hasil Terlampir)';
+		    						}
+		    					?>
+		    					</td>
 		    				</tr>
 		    				<tr>
 		    					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Urine Rutin</td>
-		    					<td>: Dalam Batas Normal</td>
+		    					<td>: 
+		    						<?php 
+		    						if($mcu->keterangan == 'Normal'){
+		    							echo 'Dalam Batas Normal (Hasil Terlampir)';
+		    						}
+		    						if($mcu->keterangan == 'Hbs Positif'){
+		    							echo 'Dalam Batas Normal (Hasil Terlampir)';
+		    						}
+		    						if($mcu->keterangan == 'Banyak Minum'){
+		    							echo 'Lekosit Dalam Urine '.$mcu->leukosit_b.' LPB';
+		    						}
+		    						if($mcu->keterangan == 'Haid'){
+		    							echo 'Eritrosit Dalam Urin Banyak';
+		    						}
+		    						?>
+		    					</td>
 		    				</tr>
 		    				<tr>
 		    					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Imuno Serologi</strong></td>
@@ -545,7 +575,21 @@
 				  		:
 				  	</div>
 				  	<div class="col-1-3">
-				     <strong>Dari Hasil Pemeriksaan Fisik Normal,<br>Hasil Pemeriksaan Laboratorium</strong>
+				     <strong>Dari Hasil Pemeriksaan Fisik Normal,<br>Hasil Pemeriksaan Laboratorium<br><?php 
+				     if($mcu->keterangan == 'Normal'){
+				     	echo 'Dalam Batas Normal';
+				     }
+				     if($mcu->keterangan == 'Hbs Positif'){
+				     	echo 'HbsAg Positif';
+				     }
+				     if($mcu->keterangan == 'Banyak Minum'){
+				     	echo 'Lekosit Dalam Urine '.$mcu->leukosit_b.' LPB,'.'<br>';
+						echo 'di sarankan banyak minum';
+					}
+					if($mcu->keterangan == 'Haid'){
+						echo 'Eritrosit dalam urine banyak (sedang Haid)';
+					}
+				     ?></strong>
 				  	</div>
 		    	</div>
 		    	<!-- <div class="head-shot-right">

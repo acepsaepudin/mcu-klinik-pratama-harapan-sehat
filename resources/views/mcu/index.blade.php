@@ -23,16 +23,18 @@
                             <tr>
                                 <th>NIK</th>
                                 <th>Nama</th>
-                                <th>Usia</th>
+                                <th>Bagian</th>
+                                <th>Perusahaan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody> 
                             @foreach($lists as $mcu)
                                 <tr>
-                                    <td> {{$mcu->merokok}}</td>
-                                    <td> {{$mcu->alkohol}}</td>
-                                    <td> {{$mcu->olahraga}}</td>
+                                    <td> {{$mcu->employee->id}}</td>
+                                    <td> {{$mcu->employee->name}}</td>
+                                    <td> {{$mcu->employee->sectionRel->name}}</td>
+                                    <td> {{$mcu->employee->companyRel->name}}</td>
                                     
                                     <td>
                                         <a href="{{URL::route('mcu.edit', ['id' => $mcu->id])}}" class="btn btn-primary">Edit</a>
